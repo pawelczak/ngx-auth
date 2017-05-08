@@ -12,6 +12,9 @@ import 'rxjs';
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
 
+// angular material styles
+import '@angular/material/prebuilt-themes/indigo-pink.css';
+
 // import 'jquery';
 import 'lodash';
 

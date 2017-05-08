@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@angular/animations@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.1.1.tgz#1000f8b22dc2031a8c36d225eb2dcf5f6c0d0af5"
+
 "@angular/common@4.1.1":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-4.1.1.tgz#088a13a70c5390c5c9613aa05754b74ee18e1afb"
@@ -29,6 +33,10 @@
 "@angular/http@4.1.1":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.1.1.tgz#1e052d02e52aee7b48d1de626abbf067e850a242"
+
+"@angular/material@2.0.0-beta.3":
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.3.tgz#ec31dee61d7300ece28fee476852db236ded1e13"
 
 "@angular/platform-browser-dynamic@4.1.1":
   version "4.1.1"
@@ -2770,11 +2778,7 @@ lower-case@^1.1.1:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/lower-case/-/lower-case-1.1.4.tgz#9a2cabd1b9e8e0ae993a4bf7d5875c39c42e8eac"
 
-lru-cache@2:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.7.3.tgz#6d4524e8b955f95d4f5b58851ce21dd72fb4e952"
-
-lru-cache@2.2.x:
+lru-cache@2, lru-cache@2.2.x:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-2.2.4.tgz#6c658619becf14031d0d0b594b16042ce4dc063d"
 
