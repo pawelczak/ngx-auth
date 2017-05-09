@@ -12,7 +12,6 @@ import { AuthState } from '../../store/auth-state';
 })
 export class LoginComponent implements OnInit {
 
-
     loginForm: FormGroup;
 
     fetching: boolean = false;
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit {
         this.loginForm = this.formBuilder.group({
             'username': ['', [Validators.required]],
             'password': ['', [Validators.required]]
-        })
+        });
 
         this.loginStateService
             .getState()
@@ -34,8 +33,6 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
-        console.log(this.loginForm);
-
         this.loginStateService.login('est', 'aaa');
     }
 

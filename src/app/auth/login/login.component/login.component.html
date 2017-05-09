@@ -27,12 +27,16 @@
 			</div>
 
 			<div class="md-block">
-				<button md-raised-button (click)="login()" color="primary" >Login</button>
+
+				<button md-raised-button (click)="login()" color="primary" class="btn-login" >Login</button>
+
+				<md-progress-spinner *ngIf="fetching"
+									 [mode]="'indeterminate'"
+									 class="spinner" >
+				</md-progress-spinner>
 			</div>
 
-			<div *ngIf="fetching">
-				FETCHING
-			</div>
+
 
 		</form>
 
