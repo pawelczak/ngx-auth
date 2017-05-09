@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '@angular/material';
 
@@ -11,8 +12,7 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './auth/login/login.component/login.component';
-import { CommonModule } from '@angular/common';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -24,11 +24,11 @@ import { CommonModule } from '@angular/common';
         routing,
         BrowserAnimationsModule,
         MaterialModule.forRoot(),
+        AuthModule
     ],
     declarations: [
         AppComponent,
-        HomeComponent,
-        LoginComponent
+        HomeComponent
     ],
     entryComponents: [
         AppComponent

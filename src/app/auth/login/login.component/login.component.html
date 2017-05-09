@@ -4,21 +4,32 @@
 
 	<md-card-content>
 
-		<div class="md-block">
-			<md-input-container>
-				<input type="text" name="Username" mdInput placeholder="Username" />
-			</md-input-container>
-		</div>
+		<form [formGroup]="loginForm">
 
-		<div class="md-block">
-			<md-input-container class="button-row">
-				<input type="password" name="password" mdInput placeholder="Password" />
-			</md-input-container>
-		</div>
+			<div class="md-block">
+				<md-input-container>
+					<input type="text"
+						   name="Username"
+						   mdInput
+						   formControlName="username"
+						   placeholder="Username" />
+				</md-input-container>
+			</div>
 
-		<div class="md-block">
-			<button md-raised-button color="primary" >Login</button>
-		</div>
+			<div class="md-block">
+				<md-input-container class="button-row">
+					<input type="password"
+						   name="password"
+						   mdInput
+						   formControlName="password"
+						   placeholder="Password" />
+				</md-input-container>
+			</div>
+
+			<div class="md-block">
+				<button md-raised-button (click)="login()" color="primary" >Login</button>
+			</div>
+		</form>
 
 	</md-card-content>
 
