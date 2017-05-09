@@ -29,6 +29,11 @@
 			<div class="md-block">
 				<button md-raised-button (click)="login()" color="primary" >Login</button>
 			</div>
+
+			<div *ngIf="fetching">
+				FETCHING
+			</div>
+
 		</form>
 
 	</md-card-content>
