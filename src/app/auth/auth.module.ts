@@ -6,7 +6,7 @@ import { MaterialModule } from '@angular/material';
 import { EffectsModule } from '@ngrx/effects';
 
 import { LoginComponent } from './login/login.component/login.component';
-import { AuthService } from './login/auth.service';
+import { AuthService } from './auth.service';
 import { LoginStateService } from './login/login-state.service';
 import { AuthEffects } from './store/auth.effects';
 

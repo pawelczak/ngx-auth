@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
 
     fetching: boolean = false;
 
+    loginErrors: string = '';
+
     constructor(private formBuilder: FormBuilder,
                 private loginStateService: LoginStateService) {}
 
@@ -29,11 +31,12 @@ export class LoginComponent implements OnInit {
             .getState()
             .subscribe((state: AuthState) => {
                 this.fetching = state.fetching;
+                this.loginErrors = state.loginErrors;
             });
     }
 
-    login() {
-        this.loginStateService.login('est', 'aaa');
+    login(loginForm: any) {
+        this.loginStateService.login(loginForm.username, loginForm.password);
     }
 
 }

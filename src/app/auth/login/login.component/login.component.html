@@ -6,6 +6,11 @@
 
 		<form [formGroup]="loginForm">
 
+			<md-error *ngIf="loginErrors" >{{loginErrors}}</md-error>
+			<md-error *ngIf="(submitted || loginForm.controls.title.touched) && loginForm.controls.title.hasError('required')">
+				Login and password doesn\'t match.
+			</md-error>
+
 			<div class="md-block">
 				<md-input-container>
 					<input type="text"
@@ -13,6 +18,7 @@
 						   mdInput
 						   formControlName="username"
 						   placeholder="Username" />
+					<md-error>ERRR</md-error>
 				</md-input-container>
 			</div>
 
@@ -23,12 +29,13 @@
 						   mdInput
 						   formControlName="password"
 						   placeholder="Password" />
+
 				</md-input-container>
 			</div>
 
 			<div class="md-block">
 
-				<button md-raised-button (click)="login()" color="primary" class="btn-login" >Login</button>
+				<button md-raised-button (click)="login(loginForm.value)" color="primary" class="btn-login" >Login</button>
 
 				<md-progress-spinner *ngIf="fetching"
 									 [mode]="'indeterminate'"
