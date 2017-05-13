@@ -6,9 +6,11 @@
 
 		<form [formGroup]="loginForm">
 
-			<md-error *ngIf="loginErrors">
-				Login and password doesn't match.
-			</md-error>
+			<div class="md-block">
+				<md-error *ngIf="loginErrors">
+					Login and password doesn't match.
+				</md-error>
+			</div>
 
 			<div class="md-block">
 				<md-input-container>
@@ -17,7 +19,7 @@
 						   mdInput
 						   formControlName="username"
 						   placeholder="Username" />
-					<md-error>ERRR</md-error>
+					<md-error>This field is required</md-error>
 				</md-input-container>
 			</div>
 
@@ -28,13 +30,17 @@
 						   mdInput
 						   formControlName="password"
 						   placeholder="Password" />
-
+					<md-error>This field is required</md-error>
 				</md-input-container>
 			</div>
 
-			<div class="md-block">
+			<div class="md-block button-row" flex>
 
-				<button md-raised-button (click)="login(loginForm.value)" color="primary" class="btn-login" >Login</button>
+				<button md-raised-button
+						(click)="login(loginForm.value)"
+						[disabled]="!loginForm.valid"
+						color="primary"
+						class="btn-login" >Login</button>
 
 				<md-progress-spinner *ngIf="fetching"
 									 [mode]="'indeterminate'"

@@ -11,8 +11,22 @@
     width: 40px;
   }
 
-  .btn-login {
-    float: left;
+  .md-block {
+    font-size: 16px;
+    padding-top: 5px;
+
+    &.button-row {
+      display: flex;
+      padding-top: 10px;
+    }
+  }
+
+  md-card-title {
+    margin-bottom: 10px;
+  }
+
+  md-input-container {
+    width: 80%;
   }
 
 }

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 import { Effect, Actions } from '@ngrx/effects';
 
 import {
-    ActionTypes, LoginSuccessAction, LoginFailureAction, LoginSuccessPageAction,
+    ActionTypes, LoginSuccessAction, LoginFailureAction,
     LogoutSuccessAction, LogoutFailureAction
 } from './actions';
 import { AuthService } from '../auth.service';
@@ -30,6 +29,10 @@ export class AuthEffects {
                         .login(payload.username, payload.password)
                         .map((result) => {
                             if (result) {
+                                setTimeout(() => {
+                                    this.router.navigate(['/home']);
+                                }, 2000);
+
                                 return new LoginSuccessAction({});
                             }
                             return new LoginFailureAction('Login and password doesn\'t match');
@@ -37,22 +40,9 @@ export class AuthEffects {
         });
 
     @Effect()
-    loginSuccess$ = this.actions$
-        .ofType(ActionTypes.LOGIN_SUCCESS)
-        .map(action => action.payload)
-        .switchMap((payload) => {
-
-            setTimeout(() => {
-                this.router.navigate(['/home']);
-            }, 2000);
-
-            return Observable.of(new LoginSuccessPageAction({}));
-        });
-
-    @Effect()
     logout$ = this.actions$
         .ofType(ActionTypes.LOGOUT)
-        .switchMap((payload) => {
+        .switchMap(() => {
             return this.authService
                         .logout()
                         .map((result) => {
