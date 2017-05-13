@@ -9,8 +9,7 @@
 /aot/
 /node_modules/
 /coverage/
-
+/src/environment/
 
 # Typings #
 /typings/
-
