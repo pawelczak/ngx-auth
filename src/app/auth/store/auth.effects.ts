@@ -4,7 +4,10 @@ import { Observable } from 'rxjs';
 
 import { Effect, Actions } from '@ngrx/effects';
 
-import { ActionTypes, LoginSuccessAction, LoginFailureAction, LoginSuccessPageAction } from './actions';
+import {
+    ActionTypes, LoginSuccessAction, LoginFailureAction, LoginSuccessPageAction,
+    LogoutSuccessAction, LogoutFailureAction
+} from './actions';
 import { AuthService } from '../auth.service';
 
 
@@ -41,9 +44,24 @@ export class AuthEffects {
 
             setTimeout(() => {
                 this.router.navigate(['/home']);
-            }, 3000);
+            }, 2000);
 
             return Observable.of(new LoginSuccessPageAction({}));
+        });
+
+    @Effect()
+    logout$ = this.actions$
+        .ofType(ActionTypes.LOGOUT)
+        .switchMap((payload) => {
+            return this.authService
+                        .logout()
+                        .map((result) => {
+                            if (result) {
+                                this.router.navigate(['/login']);
+                                return new LogoutSuccessAction({});
+                            }
+                            return new LogoutFailureAction({});
+                        });
         });
 
 }

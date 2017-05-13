@@ -9,7 +9,6 @@ export class AuthService {
 
     constructor(private db: AngularFireDatabase) {
         this.users = this.db.list('/users');
-
     }
 
     login(username: string, password: string): Observable<boolean> {
@@ -18,18 +17,18 @@ export class AuthService {
 
         let subscription =
             this.users
-            // .filter(user => user.username === username)
-            // .map(user => user.password === password)
             .subscribe((users) => {
-
                 let user = users.find((user: any) => user.username === username);
-
                 isLogged.next(user && user.password === password);
                 isLogged.complete();
                 subscription.unsubscribe();
             });
 
         return isLogged.asObservable();
+    }
+
+    logout(): Observable<boolean> {
+        return Observable.of(true);
     }
 
 }

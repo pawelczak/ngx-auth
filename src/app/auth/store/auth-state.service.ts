@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { AuthState } from './auth-state';
 import { AppState, getAuthState } from '../../app.reducers';
-import { LoginAction } from './actions';
+import { LoginAction, LogoutAction } from './actions';
 
 
 @Injectable()
@@ -18,6 +18,10 @@ export class AuthStateService {
 
     login(username: string, password: string): void {
         this.store$.dispatch(new LoginAction({username, password}));
+    }
+
+    logout() {
+        this.store$.dispatch(new LogoutAction({}));
     }
 
 }

@@ -22,6 +22,15 @@ export function authReducer(state: AuthState = defaultState, action: authActions
         case authActions.ActionTypes.LOGIN_SUCCESS_PAGE:
             return Object.assign(new AuthState(), state);
 
+        case authActions.ActionTypes.LOGOUT:
+            return Object.assign(new AuthState(), state, {fetching: true});
+
+        case authActions.ActionTypes.LOGOUT_SUCCESS:
+            return Object.assign(new AuthState(), state, {fetching: false, isLogged: false});
+
+        case authActions.ActionTypes.LOGOUT_FAILURE:
+            return Object.assign(new AuthState(), state, {fetching: false, isLogged: true});
+
         default:
             return state;
     }
