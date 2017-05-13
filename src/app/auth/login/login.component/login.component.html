@@ -1,4 +1,4 @@
-<md-card >
+<md-card *ngIf="!isLogged; else isLoggedTemplate">
 
 	<md-card-title>Welcome</md-card-title>
 
@@ -47,3 +47,17 @@
 	</md-card-content>
 
 </md-card>
+
+<ng-template #isLoggedTemplate>
+	<md-card>
+		<md-card-title>Login Successful</md-card-title>
+		<md-card-content>
+			Redirecting...
+
+			<md-progress-spinner [mode]="'indeterminate'"
+								 class="spinner" >
+			</md-progress-spinner>
+
+		</md-card-content>
+	</md-card>
+</ng-template>

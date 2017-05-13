@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
 
     loginErrors: string = '';
 
+    isLogged: boolean = false;
+
     constructor(private formBuilder: FormBuilder,
                 private authStateService: AuthStateService) {}
 
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
             .subscribe((state: AuthState) => {
                 this.fetching = state.fetching;
                 this.loginErrors = state.loginErrors;
+                this.isLogged = state.isLogged;
             });
     }
 

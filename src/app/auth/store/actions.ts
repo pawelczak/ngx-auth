@@ -6,6 +6,7 @@ export const ActionTypes = {
     LOGIN: `${AUTH_PREFIX}LOGIN`,
     LOGIN_SUCCESS: `${AUTH_PREFIX}LOGIN_SUCCESS`,
     LOGIN_FAILURE: `${AUTH_PREFIX}LOGIN_FAILURE`,
+    LOGIN_SUCCESS_PAGE: `${AUTH_PREFIX}LOGIN_SUCCESS_PAGE`,
     LOGOUT: `${AUTH_PREFIX}LOGOUT`
 };
 
@@ -33,4 +34,10 @@ export class LoginFailureAction implements Action {
     constructor(public payload: any) {}
 }
 
-export type Actions = InitStateAction | LoginAction | LoginSuccessAction | LoginFailureAction;
+export class LoginSuccessPageAction implements Action {
+    type = ActionTypes.LOGIN_SUCCESS_PAGE;
+
+    constructor(public payload: any) {}
+}
+
+export type Actions = InitStateAction | LoginAction | LoginSuccessAction | LoginFailureAction | LoginSuccessPageAction;
