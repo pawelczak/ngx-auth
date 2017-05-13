@@ -1,12 +1,10 @@
 export class AuthState {
 
-    fetching: boolean;
+    isLogged: boolean = false;
 
-    loginErrors: string;
+    fetching: boolean = false;
 
-
-
-    message: string;
+    loginErrors: string = '';
 
     constructor() {}
 

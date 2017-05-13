@@ -14,10 +14,10 @@ export function authReducer(state: AuthState = defaultState, action: authActions
             return Object.assign(new AuthState(), {}, {fetching: true});
 
         case authActions.ActionTypes.LOGIN_SUCCESS:
-            return Object.assign(new AuthState(), {}, {fetching: false});
+            return Object.assign(new AuthState(), {}, {fetching: false, isLogged: true});
 
         case authActions.ActionTypes.LOGIN_FAILURE:
-            return Object.assign(new AuthState(), {}, {fetching: false, loginErrors: action.payload});
+            return Object.assign(new AuthState(), {}, {fetching: false, loginErrors: action.payload, isLogged: false});
 
 
         default:

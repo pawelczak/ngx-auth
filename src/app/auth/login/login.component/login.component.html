@@ -6,9 +6,8 @@
 
 		<form [formGroup]="loginForm">
 
-			<md-error *ngIf="loginErrors" >{{loginErrors}}</md-error>
-			<md-error *ngIf="(submitted || loginForm.controls.title.touched) && loginForm.controls.title.hasError('required')">
-				Login and password doesn\'t match.
+			<md-error *ngIf="loginErrors">
+				Login and password doesn't match.
 			</md-error>
 
 			<div class="md-block">

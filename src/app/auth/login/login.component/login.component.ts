@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { LoginStateService } from '../login-state.service';
+
 import { AuthState } from '../../store/auth-state';
+import { AuthStateService } from '../../store/auth-state.service';
 
 @Component({
     selector: 'login',
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
     loginErrors: string = '';
 
     constructor(private formBuilder: FormBuilder,
-                private loginStateService: LoginStateService) {}
+                private authStateService: AuthStateService) {}
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
             'password': ['', [Validators.required]]
         });
 
-        this.loginStateService
+        this.authStateService
             .getState()
             .subscribe((state: AuthState) => {
                 this.fetching = state.fetching;
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
     }
 
     login(loginForm: any) {
-        this.loginStateService.login(loginForm.username, loginForm.password);
+        this.authStateService.login(loginForm.username, loginForm.password);
     }
 
 }
