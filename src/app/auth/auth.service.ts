@@ -19,8 +19,13 @@ export class AuthService {
             this.users
             .subscribe((users) => {
                 let user = users.find((user: any) => user.username === username);
-                isLogged.next(user && user.password === password);
-                isLogged.complete();
+
+                if (user && user.password === password) {
+                    isLogged.next(true);
+                    isLogged.complete();
+                } else {
+                    isLogged.error('Login and password doesn\'t match');
+                }
                 subscription.unsubscribe();
             });
 

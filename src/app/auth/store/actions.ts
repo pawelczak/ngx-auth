@@ -38,7 +38,7 @@ export class LoginFailureAction implements Action {
 export class LogoutAction implements Action {
     type = ActionTypes.LOGOUT;
 
-    constructor(public payload: any) {}
+    constructor(public payload?: any) {}
 }
 
 export class LogoutSuccessAction implements Action {
